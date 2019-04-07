@@ -25,7 +25,7 @@ namespace Nutritia.Services
             {
                 var jsonResult = await result.Content.ReadAsStringAsync();
                 var response = JsonConvert.DeserializeObject<ApiResponse>(jsonResult);
-                if(response.StatusVerbose.Equals("product found"))
+                if(response.Status == 1)
                 {
                     return response.Product;
                 }

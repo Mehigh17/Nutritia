@@ -6,7 +6,7 @@ namespace Nutritia.Models
     {
 
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public int Status { get; set; }
         
         [JsonProperty("status_verbose")]
         public string StatusVerbose { get; set; }
