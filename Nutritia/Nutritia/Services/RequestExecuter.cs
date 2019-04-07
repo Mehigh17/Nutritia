@@ -9,7 +9,7 @@ namespace Nutritia.Services
     public class RequestExecuter : IRequestExecuter
     {
 
-        private const string ApiEndpoint = "https://world.openpetfoodfacts.org/api/v0/product";
+        private const string ApiEndpoint = "https://world.openfoodfacts.org/api/v0/product";
 
         private readonly HttpClient _httpClient;
 
@@ -20,7 +20,8 @@ namespace Nutritia.Services
 
         public async Task<Product> GetProduct(string barCode)
         {
-            var result = await _httpClient.GetAsync($"{ApiEndpoint}/{barCode}.json");
+            var uri = $"{ApiEndpoint}/{barCode}.json";
+            var result = await _httpClient.GetAsync(uri);
             if(result.IsSuccessStatusCode)
             {
                 var jsonResult = await result.Content.ReadAsStringAsync();
