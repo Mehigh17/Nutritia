@@ -63,5 +63,14 @@ namespace Nutritia.Models
         [JsonProperty("nutriments")]
         public Dictionary<string, object> Nutriments { get; set; }
 
+        [JsonProperty("nutrition_grades_tags")]
+        public List<string> NutritionGradeTags { get; set; }
+
+        [JsonProperty("nova-group")]
+        public string NovaGroup { get; set; }
+
+        [JsonProperty("additives_tags")]
+        public List<string> AdditivesTags { get; set; }
+
     }
 }
