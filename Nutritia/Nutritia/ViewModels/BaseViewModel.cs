@@ -8,18 +8,11 @@ namespace Nutritia.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
 
-        bool isBusy = false;
+        bool _isBusy = false;
         public bool IsBusy
         {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -39,11 +32,7 @@ namespace Nutritia.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
-
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

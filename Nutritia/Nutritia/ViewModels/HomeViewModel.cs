@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Nutritia.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : PageViewModel
     {
 
         private ProductDetailViewModel _productVm;

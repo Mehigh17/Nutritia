@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Nutritia.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : PageViewModel
     {
         public AboutViewModel()
         {
