@@ -16,8 +16,12 @@ namespace Nutritia.ViewModels
             set => SetProperty(ref _productVm, value);
         }
 
+        private readonly IRequestExecuter _requestExecuter;
+
         public HomeViewModel()
         {
+            _requestExecuter = DependencyService.Resolve<RequestExecuter>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
+
             Title = "Home";
             ProductVm = new ProductDetailViewModel();
 
@@ -31,16 +35,14 @@ namespace Nutritia.ViewModels
                 IsBusy = true;
                 try
                 {
-                    var reqExec = new RequestExecuter();
-                    var product = await reqExec.GetProduct(barcode);
+                    var product = await _requestExecuter.GetProduct(barcode);
 
                     ProductVm.ImgUrl = product.ImageUrl;
                     ProductVm.ProductName = product.ProductName;
                 }
                 catch(ProductNotFoundException)
                 {
-                    ProductVm.ImgUrl = string.Empty;
-                    ProductVm.ProductName = "Product not found.";
+                    ProductVm = null;
                 }
                 catch(Exception e)
                 {
