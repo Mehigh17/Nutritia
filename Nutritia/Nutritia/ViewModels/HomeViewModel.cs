@@ -28,7 +28,7 @@ namespace Nutritia.ViewModels
         {
             if(!string.IsNullOrEmpty(barcode))
             {
-                ProductVm.IsBusy = true;
+                IsBusy = true;
                 try
                 {
                     var reqExec = new RequestExecuter();
@@ -48,7 +48,7 @@ namespace Nutritia.ViewModels
                 }
                 finally
                 {
-                    ProductVm.IsBusy = false;
+                    IsBusy = false;
                 }
             }
         }

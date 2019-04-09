@@ -15,7 +15,33 @@
                      Padding="10">
             <Button Text="Scan"
                     Clicked="LaunchScan_Clicked"/>
-            <controls:ProductDetailView BindingContext="{Binding ProductVm}"/>
+
+            <Label Text="Loading..."
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="True">
+                        <DataTrigger.Setters>
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger.Setters>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="False">
+                        <DataTrigger.Setters>
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger.Setters>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <controls:ProductDetailView BindingContext="{Binding ProductVm}">
+                <controls:ProductDetailView.Triggers>
+                    <DataTrigger TargetType="controls:ProductDetailView" Binding="{Binding}" Value="{x:Null}">
+                        <DataTrigger.Setters>
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger.Setters>
+                    </DataTrigger>
+                </controls:ProductDetailView.Triggers>
+            </controls:ProductDetailView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

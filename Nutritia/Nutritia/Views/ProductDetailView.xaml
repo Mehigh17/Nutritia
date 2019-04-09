@@ -13,23 +13,6 @@
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"/>
 
-            <Label Text="Loading..."
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center">
-                <Label.Triggers>
-                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="True">
-                        <DataTrigger.Setters>
-                            <Setter Property="IsVisible" Value="True"/>
-                        </DataTrigger.Setters>
-                    </DataTrigger>
-                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="False">
-                        <DataTrigger.Setters>
-                            <Setter Property="IsVisible" Value="False"/>
-                        </DataTrigger.Setters>
-                    </DataTrigger>
-                </Label.Triggers>
-            </Label>
-
         </StackLayout>
   </ContentView.Content>
 </ContentView>
