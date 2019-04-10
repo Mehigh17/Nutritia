@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,24 @@
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Nutriscore\nutriscore_a.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_b.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_c.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_d.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_e.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_a.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_b.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_c.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_d.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_e.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
