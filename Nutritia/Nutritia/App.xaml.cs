@@ -1,4 +1,5 @@
-﻿using Nutritia.Services;
+﻿using Nutritia.Factories;
+using Nutritia.Services;
 using Nutritia.Views;
 using Xamarin.Forms;
 
@@ -12,6 +13,7 @@ namespace Nutritia
             InitializeComponent();
 
             DependencyService.Register<RequestExecuter>();
+            DependencyService.Register<ViewModelFactory>();
 
             MainPage = new MainPage();
         }

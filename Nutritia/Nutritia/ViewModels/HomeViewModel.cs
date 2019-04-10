@@ -1,4 +1,5 @@
 ﻿using Nutritia.Exceptions;
+using Nutritia.Factories;
 using Nutritia.Services;
 using Nutritia.Views;
 using System;
@@ -17,10 +18,12 @@ namespace Nutritia.ViewModels
         }
 
         private readonly IRequestExecuter _requestExecuter;
+        private readonly IViewModelFactory _viewModelFactory;
 
         public HomeViewModel()
         {
             _requestExecuter = DependencyService.Resolve<RequestExecuter>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
+            _viewModelFactory = DependencyService.Resolve<IViewModelFactory>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
 
             Title = "Home";
             ProductVm = new ProductDetailViewModel();
@@ -36,9 +39,7 @@ namespace Nutritia.ViewModels
                 try
                 {
                     var product = await _requestExecuter.GetProduct(barcode);
-
-                    ProductVm.ImgUrl = product.ImageUrl;
-                    ProductVm.ProductName = product.ProductName;
+                    ProductVm = _viewModelFactory.CreateProductDetailViewModel(product);
                 }
                 catch(ProductNotFoundException)
                 {
