@@ -41,5 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ProductRecordViewCell.xaml.cs">
+      <DependentUpon>ProductRecordViewCell.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

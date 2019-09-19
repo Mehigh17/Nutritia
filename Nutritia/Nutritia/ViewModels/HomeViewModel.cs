@@ -3,6 +3,7 @@ using Nutritia.Factories;
 using Nutritia.Services;
 using Nutritia.Views;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace Nutritia.ViewModels
@@ -13,8 +14,8 @@ namespace Nutritia.ViewModels
         private ObservableCollection<ProductRecordViewModel> _productRecords = new ObservableCollection<ProductRecordViewModel>();
         public ObservableCollection<ProductRecordViewModel> ProductRecords
         {
-            get => _productVm;
-            set => SetProperty(ref _productVm, value);
+            get => _productRecords;
+            set => SetProperty(ref _productRecords, value);
         }
 
         private readonly IRequestExecuter _requestExecuter;

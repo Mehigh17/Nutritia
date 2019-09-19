@@ -5,43 +5,34 @@
              xmlns:controls="clr-namespace:Nutritia.Views"
              x:Class="Nutritia.Views.HomePage"
              Title="{Binding Title}">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="RecordItemTemplate">
+            <controls:ProductRecordViewCell BindingContext="{Binding}"/>
+        </DataTemplate>
+    </ContentPage.Resources>
 
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-                     Padding="10">
-            <Button Text="Scan"
+        <AbsoluteLayout>
+            <ListView ItemsSource="{Binding ProductRecords}"
+                      ItemTemplate="{StaticResource RecordItemTemplate}"
+                      AbsoluteLayout.LayoutFlags="SizeProportional"
+                      AbsoluteLayout.LayoutBounds="0,0,1.0,1.0"
+                      SelectionMode="None"
+                      SeparatorVisibility="None"
+                      RowHeight="200"/>
+
+            <Button Text="Scan Barcode"
+                    TextColor="White"
+                    FontSize="22"
+                    BackgroundColor="#63ACE5"
+                    BorderRadius="25"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5,0.95,0.9,0.1"
                     Clicked="LaunchScan_Clicked"/>
-
-            <Label Text="Loading..."
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center">
-                <Label.Triggers>
-                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="True">
-                        <DataTrigger.Setters>
-                            <Setter Property="IsVisible" Value="True"/>
-                        </DataTrigger.Setters>
-                    </DataTrigger>
-                    <DataTrigger TargetType="Label" Binding="{Binding Path=IsBusy}" Value="False">
-                        <DataTrigger.Setters>
-                            <Setter Property="IsVisible" Value="False"/>
-                        </DataTrigger.Setters>
-                    </DataTrigger>
-                </Label.Triggers>
-            </Label>
-
-            <controls:ProductDetailView BindingContext="{Binding ProductVm}">
-                <controls:ProductDetailView.Triggers>
-                    <DataTrigger TargetType="controls:ProductDetailView" Binding="{Binding}" Value="{x:Null}">
-                        <DataTrigger.Setters>
-                            <Setter Property="IsVisible" Value="False"/>
-                        </DataTrigger.Setters>
-                    </DataTrigger>
-                </controls:ProductDetailView.Triggers>
-            </controls:ProductDetailView>
-        </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

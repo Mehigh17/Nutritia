@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Nutritia.Views.ProductRecordViewCell">
+    <ViewCell.View>
+        <Frame MinimumHeightRequest="200"
+               CornerRadius="25"
+               VerticalOptions="Center"
+               BackgroundColor="#E6E6EA"
+               HasShadow="False"
+               Margin="15"
+               Padding="15">
+            <StackLayout Orientation="Vertical">
+                <Label HorizontalTextAlignment="Center"
+                       Text="{Binding ProductName}"
+                       d:Text="Product Name"
+                       FontSize="22"
+                       FontAttributes="Bold"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Column="0"
+                           CornerRadius="25"
+                           Padding="0"
+                           HasShadow="False"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill">
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFit"
+                               VerticalOptions="Fill"
+                               HorizontalOptions="Fill"/>
+                    </Frame>
+
+                    <StackLayout Grid.Column="1"
+                                 Orientation="Vertical">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Brand: " />
+                                    <Span Text="{Binding BrandName}" d:Text="Brandescu" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Allergens: " />
+                                    <Span Text="{Binding Allergens}" d:Text="milk, egg, etc." />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Serving size: " />
+                                    <Span Text="{Binding ServingSize}" d:Text="240g" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Searched on " />
+                                    <Span Text="{Binding SearchDate}" d:Text="28th of January, 2019" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ViewCell.View>
+</ViewCell>
