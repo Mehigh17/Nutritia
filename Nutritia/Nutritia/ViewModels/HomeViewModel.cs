@@ -1,4 +1,4 @@
-﻿using Nutritia.Exceptions;
+using Nutritia.Exceptions;
 using Nutritia.Factories;
 using Nutritia.Services;
 using Nutritia.Views;
@@ -10,8 +10,8 @@ namespace Nutritia.ViewModels
     public class HomeViewModel : PageViewModel
     {
 
-        private ProductDetailViewModel _productVm;
-        public ProductDetailViewModel ProductVm
+        private ObservableCollection<ProductRecordViewModel> _productRecords = new ObservableCollection<ProductRecordViewModel>();
+        public ObservableCollection<ProductRecordViewModel> ProductRecords
         {
             get => _productVm;
             set => SetProperty(ref _productVm, value);
@@ -26,7 +26,6 @@ namespace Nutritia.ViewModels
             _viewModelFactory = DependencyService.Resolve<IViewModelFactory>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
 
             Title = "Home";
-            ProductVm = new ProductDetailViewModel();
 
             MessagingCenter.Subscribe<HomePage, string>(this, "BarcodeScanned", OnBarcodeReceived);
         }
@@ -39,11 +38,11 @@ namespace Nutritia.ViewModels
                 try
                 {
                     var product = await _requestExecuter.GetProduct(barcode);
-                    ProductVm = _viewModelFactory.CreateProductDetailViewModel(product);
+                    //ProductVm = _viewModelFactory.CreateProductDetailViewModel(product);
                 }
                 catch(ProductNotFoundException)
                 {
-                    ProductVm = null;
+                    //ProductVm = null;
                 }
                 catch(Exception e)
                 {
