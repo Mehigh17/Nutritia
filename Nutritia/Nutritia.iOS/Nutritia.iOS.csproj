@@ -133,13 +133,13 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Nutritia\Nutritia.csproj">
-      <Project>{EE4AB292-9B45-46E5-AB16-EE9D3D5EBB87}</Project>
+      <Project>{8997F061-DE51-4127-B3B3-C65BE968950F}</Project>
       <Name>Nutritia</Name>
     </ProjectReference>
   </ItemGroup>
