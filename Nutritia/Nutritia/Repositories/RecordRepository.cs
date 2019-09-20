@@ -18,12 +18,18 @@ namespace Nutritia.Repositories
 
         public void AddRecord(ProductRecord record)
         {
-            _realm.Add(record);
+            _realm.Write(() =>
+            {
+                _realm.Add(record);
+            });
         }
 
         public void Clear()
         {
-            _realm.RemoveAll<ProductRecord>();
+            _realm.Write(() =>
+            {
+                _realm.RemoveAll<ProductRecord>();
+            });
         }
 
         public List<ProductRecord> GetRecords()
@@ -33,12 +39,18 @@ namespace Nutritia.Repositories
 
         public void RemoveRecord(ProductRecord record)
         {
-            _realm.Remove(record);
+            _realm.Write(() =>
+            {
+                _realm.Remove(record);
+            });
         }
 
         public void UpdateRecord(ProductRecord record)
         {
-            _realm.Add(record, true);
+            _realm.Write(() =>
+            {
+                _realm.Add(record, true);
+            });
         }
 
     }
