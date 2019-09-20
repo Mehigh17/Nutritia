@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 
 namespace Nutritia.ViewModels
 {
@@ -38,6 +39,13 @@ namespace Nutritia.ViewModels
         {
             get => _allergens;
             set => SetProperty(ref _allergens, value);
+        }
+
+        private DateTime _searchDate;
+        public DateTime SearchDate
+        {
+            get => _searchDate;
+            set => SetProperty(ref _searchDate, value);
         }
 
         private ICommand _readMoreCommand;

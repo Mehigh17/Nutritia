@@ -34,7 +34,8 @@
                     </Frame>
 
                     <StackLayout Grid.Column="1"
-                                 Orientation="Vertical">
+                                 Orientation="Vertical"
+                                 VerticalOptions="Center">
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
@@ -63,7 +64,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Searched on " />
-                                    <Span Text="{Binding SearchDate}" d:Text="28th of January, 2019" />
+                                    <Span Text="{Binding SearchDate, StringFormat='{0:MM/dd/yyyy}'}" d:Text="28th of January, 2019" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
