@@ -27,7 +27,7 @@
                            HasShadow="False"
                            VerticalOptions="Fill"
                            HorizontalOptions="Fill">
-                        <Image Source="{Binding ImageUrl}"
+                        <Image Source="{Binding ImageSource}"
                                Aspect="AspectFit"
                                VerticalOptions="Fill"
                                HorizontalOptions="Fill"/>

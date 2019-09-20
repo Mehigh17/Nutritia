@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Nutritia.ViewModels
 {
     public class ProductRecordViewModel : BaseViewModel
     {
 
-        private string _imageUrl;
-        public string ImageUrl
+        private ImageSource _imageSource;
+        public ImageSource ImageSource
         {
-            get => _imageUrl;
-            set => SetProperty(ref _imageUrl, value);
+            get => _imageSource;
+            set => SetProperty(ref _imageSource, value);
         }
 
         private string _productName;
