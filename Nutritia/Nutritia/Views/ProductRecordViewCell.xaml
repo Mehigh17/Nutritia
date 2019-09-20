@@ -6,7 +6,7 @@
                VerticalOptions="Center"
                BackgroundColor="#E6E6EA"
                HasShadow="False"
-               Margin="15"
+               Margin="10"
                Padding="15">
             <StackLayout Orientation="Vertical">
                 <Label HorizontalTextAlignment="Center"
