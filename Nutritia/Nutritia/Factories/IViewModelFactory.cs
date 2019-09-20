@@ -6,5 +6,7 @@ namespace Nutritia.Factories
     public interface IViewModelFactory
     {
 
+        ProductRecordViewModel CreateProductRecordViewModel(ProductRecord record, Product product);
+
     }
 }
