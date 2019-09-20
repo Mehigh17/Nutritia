@@ -17,7 +17,7 @@ namespace Nutritia.Models
         /// <summary>
         /// The date time at which the product has been searched.
         /// </summary>
-        public DateTime SearchedOn { get; set; }
+        public DateTimeOffset SearchedOn { get; set; }
 
     }
 }
