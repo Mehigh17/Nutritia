@@ -1,4 +1,5 @@
 ﻿using Nutritia.Factories;
+using Nutritia.Repositories;
 using Nutritia.Services;
 using Nutritia.Views;
 using Xamarin.Forms;
@@ -12,6 +13,7 @@ namespace Nutritia
         {
             InitializeComponent();
 
+            DependencyService.Register<RecordRepository>();
             DependencyService.Register<RequestExecuter>();
             DependencyService.Register<ViewModelFactory>();
 

@@ -1,10 +1,12 @@
 ﻿using System;
+using Realms;
+
 namespace Nutritia.Models
 {
     /// <summary>
     /// This represents a history record showing what the user searched for.
     /// </summary>
-    public class ProductRecord
+    public class ProductRecord : RealmObject
     {
 
         /// <summary>

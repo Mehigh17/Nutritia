@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -32,6 +32,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />  
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="Realm" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,5 +44,8 @@
     <Compile Update="Views\ProductRecordViewCell.xaml.cs">
       <DependentUpon>ProductRecordViewCell.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>
