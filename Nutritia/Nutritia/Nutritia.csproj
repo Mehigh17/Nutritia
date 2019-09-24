@@ -17,6 +17,7 @@
     <None Remove="Assets\Nutriscore\nutriscore_d.png" />
     <None Remove="Assets\Nutriscore\nutriscore_e.png" />
     <None Remove="Assets\Icons\question.png" />
+    <None Remove="Assets\Icons\github.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <EmbeddedResource Include="Assets\Nutriscore\nutriscore_d.png" />
     <EmbeddedResource Include="Assets\Nutriscore\nutriscore_e.png" />
     <EmbeddedResource Include="Assets\Icons\question.png" />
+    <EmbeddedResource Include="Assets\Icons\github.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,5 +52,6 @@
   <ItemGroup>
     <Folder Include="Repositories\" />
     <Folder Include="Assets\Icons\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>
