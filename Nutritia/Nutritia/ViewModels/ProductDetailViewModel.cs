@@ -6,6 +6,13 @@ namespace Nutritia.ViewModels
     public class ProductDetailViewModel : BaseViewModel
     {
 
+        private string _imageUrl;
+        public string ImageUrl
+        {
+            get => _imageUrl;
+            set => SetProperty(ref _imageUrl, value);
+        }
+
         private string _productName;
         public string ProductName
         {
@@ -54,6 +61,5 @@ namespace Nutritia.ViewModels
             get => _keywords;
             set => SetProperty(ref _keywords, value);
         }
-
     }
 }
