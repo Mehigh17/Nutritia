@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Nutritia.Views.ProductRecordViewCell">
     <ViewCell.View>
         <Frame MinimumHeightRequest="200"
@@ -26,11 +26,12 @@
                            Padding="0"
                            HasShadow="False"
                            VerticalOptions="Fill"
-                           HorizontalOptions="Fill">
+                           HorizontalOptions="Fill"
+                           IsClippedToBounds="True">
                         <Image Source="{Binding ImageSource}"
-                               Aspect="AspectFit"
+                               Aspect="AspectFill"
                                VerticalOptions="Fill"
-                               HorizontalOptions="Fill"/>
+                               HorizontalOptions="Fill" />
                     </Frame>
 
                     <StackLayout Grid.Column="1"
