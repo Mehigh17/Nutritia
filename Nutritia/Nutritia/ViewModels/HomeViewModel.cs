@@ -23,12 +23,14 @@ namespace Nutritia.ViewModels
         private readonly IRecordRepository _recordRepo;
         private readonly IRequestExecuter _requestExecuter;
         private readonly IViewModelFactory _viewModelFactory;
+        private readonly IModalService _modalService;
 
         public HomeViewModel()
         {
             _recordRepo = DependencyService.Resolve<IRecordRepository>() ?? throw new ArgumentNullException(nameof(_recordRepo));
             _requestExecuter = DependencyService.Resolve<RequestExecuter>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
-            _viewModelFactory = DependencyService.Resolve<IViewModelFactory>() ?? throw new ArgumentNullException(nameof(_requestExecuter));
+            _viewModelFactory = DependencyService.Resolve<IViewModelFactory>() ?? throw new ArgumentNullException(nameof(_viewModelFactory));
+            _modalService = DependencyService.Resolve<IModalService>() ?? throw new ArgumentNullException(nameof(_modalService));
 
             Title = "Home";
 
@@ -45,7 +47,7 @@ namespace Nutritia.ViewModels
 
         private async Task OnBarcodeReceived(string barcode)
         {
-            if(!string.IsNullOrEmpty(barcode))
+            if (!string.IsNullOrEmpty(barcode))
             {
                 IsBusy = true;
                 try
@@ -59,8 +61,11 @@ namespace Nutritia.ViewModels
                     _recordRepo.AddRecord(record);
                     var vm = _viewModelFactory.CreateProductRecordViewModel(record, product);
                     ProductRecords.Add(vm);
+
+                    var detailVm = _viewModelFactory.CreateProductDetailViewModel(product);
+                    await _modalService.ShowProductDetail(detailVm);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw e;
                 }
