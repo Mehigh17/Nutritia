@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Nutritia.ViewModels"
+             xmlns:local="clr-namespace:Nutritia.Extensions"
+             mc:Ignorable="d"
+             x:Class="Nutritia.Views.ProductDetailPage">
+    <ContentPage.BindingContext>
+        <vm:ProductDetailViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Frame HeightRequest="200"
+                   HasShadow="False"
+                   CornerRadius="25"
+                   IsClippedToBounds="True"
+                   Padding="0"
+                   Margin="20,20,20,0">
+                <Image Source="{Binding ImageUrl}"
+                       Aspect="AspectFill"
+                       HeightRequest="200" />
+            </Frame>
+
+            <Label Text="{Binding ProductName}"
+                   d:Text="Product Name"
+                   HorizontalOptions="Center"
+                   FontSize="33" />
+
+            <CarouselView HorizontalOptions="FillAndExpand"
+                          HeightRequest="40"
+                          Margin="0,20,0,0"
+                          ItemsSource="{Binding Keywords}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5,0,5,0">
+                            <Frame HeightRequest="30"
+                                   CornerRadius="15"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   HasShadow="False"
+                                   Padding="10,0,10,0"
+                                   BackgroundColor="#ECC1FF">
+                                <Label Text="{Binding}"
+                                       HorizontalOptions="Center"
+                                       FontSize="18"
+                                       VerticalOptions="Center" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <Frame CornerRadius="25"
+                   BackgroundColor="#E6E6EA"
+                   HasShadow="False"
+                   Margin="20,0,20,0">
+                <StackLayout Orientation="Vertical">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Brand: " />
+                                <Span Text="{Binding BrandName}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Serving size: " />
+                                <Span Text="{Binding ServingSize}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Quantity: " />
+                                <Span Text="{Binding Quantity}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Allergens: " />
+                                <Span Text="{Binding Allergens}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Created on: " />
+                                <Span Text="{Binding CreatedOn}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
