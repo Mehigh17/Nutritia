@@ -1,5 +1,5 @@
-﻿using System;
-
+using System;
+using Nutritia.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Mobile;
@@ -12,6 +12,8 @@ namespace Nutritia.Views
         public HomePage()
         {
             InitializeComponent();
+
+            ModalService.NavigationInstance = Navigation;
         }
 
         private async void LaunchScan_Clicked(object sender, EventArgs e)

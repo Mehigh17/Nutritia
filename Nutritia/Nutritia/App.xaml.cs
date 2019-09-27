@@ -14,6 +14,7 @@ namespace Nutritia
             InitializeComponent();
 
             DependencyService.Register<RecordRepository>();
+            DependencyService.Register<ModalService>();
             DependencyService.Register<RequestExecuter>();
             DependencyService.Register<ViewModelFactory>();
 
