@@ -7,6 +7,7 @@ namespace Nutritia.Factories
     {
 
         ProductRecordViewModel CreateProductRecordViewModel(ProductRecord record, Product product);
+        ProductDetailViewModel CreateProductDetailViewModel(Product product);
 
     }
 }
