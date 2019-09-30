@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Nutritia.ViewModels"
+             xmlns:controls="clr-namespace:Nutritia.Views"
+             x:Class="Nutritia.Views.HomePage"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="RecordItemTemplate">
+            <controls:ProductRecordViewCell BindingContext="{Binding}" />
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ListView ItemsSource="{Binding ProductRecords}"
+                      ItemTemplate="{StaticResource RecordItemTemplate}"
+                      AbsoluteLayout.LayoutFlags="SizeProportional"
+                      AbsoluteLayout.LayoutBounds="0,0,1.0,1.0"
+                      SelectionMode="None"
+                      SeparatorVisibility="None"
+                      RowHeight="200" />
+
+            <Button  Text="Scan Barcode"
+                     TextColor="White"
+                     FontSize="22"
+                     BackgroundColor="{StaticResource NavigationPrimary}"
+                     BorderRadius="25"
+                     AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="0.5,0.95,0.9,0.1"
+                     Clicked="LaunchScan_Clicked" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

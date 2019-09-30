@@ -1,8 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Nutritia.Factories;
+using Nutritia.Repositories;
 using Nutritia.Services;
 using Nutritia.Views;
+using Xamarin.Forms;
 
 namespace Nutritia
 {
@@ -13,7 +13,11 @@ namespace Nutritia
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<RecordRepository>();
+            DependencyService.Register<ModalService>();
+            DependencyService.Register<RequestExecuter>();
+            DependencyService.Register<ViewModelFactory>();
+
             MainPage = new MainPage();
         }
 

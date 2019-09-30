@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,47 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <None Remove="Assets\Nutriscore\nutriscore_a.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_b.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_c.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_d.png" />
+    <None Remove="Assets\Nutriscore\nutriscore_e.png" />
+    <None Remove="Assets\Icons\question.png" />
+    <None Remove="Assets\Icons\github.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_a.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_b.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_c.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_d.png" />
+    <EmbeddedResource Include="Assets\Nutriscore\nutriscore_e.png" />
+    <EmbeddedResource Include="Assets\Icons\question.png" />
+    <EmbeddedResource Include="Assets\Icons\github.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />  
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="Realm" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ProductRecordViewCell.xaml.cs">
+      <DependentUpon>ProductRecordViewCell.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Assets\Icons\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>
